@@ -58,3 +58,15 @@ button{
  background-color: grey;
 }
 
+
+body > p.donotshow{
+    display: none;
+}
+
+@media(max-width : 500px){
+
+    body > p.donotshow{
+        display: block;
+        color: white;
+    }
+}
