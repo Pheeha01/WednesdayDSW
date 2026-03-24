@@ -35,8 +35,7 @@ Array.from(oper).forEach(function(button) {
             else{
                 screen.value = eval(expression);
                 expression = screen.value; 
-            }
-              
+            }             
         }
             break;     
       default:
