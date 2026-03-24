@@ -19,10 +19,24 @@ Array.from(oper).forEach(function(button) {
     switch (true) {
       case operand ==='=':
         if (expression !== '') {
-            screen.value = eval(expression);
-            console.log(expression)
-            expression = screen.value; 
-            console.log(expression)
+             if (expression.includes("%")){
+                let numbers= expression.split(/([+\-*/])/)
+                numbers = numbers.map(num=>{
+                    if(num.includes("%")){
+                        num= num.slice(0,-1)
+                        num = String(Number(num/100))
+                    }
+                    return num
+                })
+                expression = numbers.join('');
+                screen.value = eval(expression);
+                expression = screen.value;  
+            }
+            else{
+                screen.value = eval(expression);
+                expression = screen.value; 
+            }
+              
         }
             break;     
       default:
