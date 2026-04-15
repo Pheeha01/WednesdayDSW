@@ -5,19 +5,18 @@ let clearing = document.getElementsByClassName('clear')
 let percent = document.getElementById('percent')
 let expression='';
 
-Array.from(number).forEach(function insertNums(button) {
+Array.from(number).forEach(button => {
     button.addEventListener('click', function(){
-        console.log(this.textContent)
          expression += this.textContent
          screen.value = expression;
     })    
 });
 
-Array.from(oper).forEach(function(button) {
+Array.from(oper).forEach(button => {
   button.addEventListener('click', function() {
     let operand = this.textContent;
-    switch (true) {
-      case operand ==='=':
+    switch (operand) {
+      case'=':
         if (expression !== '') {
              if (expression.includes("%")){
                 let numbers= expression.split(/([+\-*/])/)
@@ -36,6 +35,10 @@ Array.from(oper).forEach(function(button) {
                 screen.value = eval(expression);
                 expression = screen.value; 
             }             
+        }
+        else{
+            expression ='0'
+            screen.value = Number(expression)
         }
             break;     
       default:
